@@ -144,9 +144,9 @@ contract NFT is ERC721Enumerable, Ownable {
         return baseURI;
     }
 
-    function _payRoyalty(uint256 _royaltyFee) internal {
+    function _payRoyalty(uint256 _royalty) internal {
 
-        (bool success_1, ) = payable(artist).call{ value: _royaltyFee }("");
+        (bool success_1, ) = payable(artist).call{ value: _royalty }("");
         
         require(success_1);
     }
